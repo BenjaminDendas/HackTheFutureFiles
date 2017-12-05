@@ -1,0 +1,163 @@
+﻿<Window x:Class="Dashboard.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Dashboard"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="442.045" Width="813.636">
+
+    <Grid Margin="0,0,2,-1">
+        <TabControl HorizontalAlignment="Left" Height="392" Margin="10,10,0,0" VerticalAlignment="Top" Width="230">
+            <TabItem Header="Create" Margin="-2,0,-33,0" Background="LightBlue">
+                <Grid Background="LightBlue" Margin="0,-2,0,0">
+                    <Label Content="Level Android : " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="94"/>
+                    <ComboBox Name="androidLevelComboBox" HorizontalAlignment="Left" Margin="104,10,0,0" VerticalAlignment="Top" Width="110" SelectionChanged="androidLevelComboBox_SelectionChanged">
+                        <ComboBoxItem Content="1"></ComboBoxItem>
+                        <ComboBoxItem Content="2"></ComboBoxItem>
+                        <ComboBoxItem Content="3"></ComboBoxItem>
+                    </ComboBox>
+
+                    <CheckBox Name="locationCheckBox" Content="Location" HorizontalAlignment="Left" Margin="8,75,0,0" VerticalAlignment="Top" FontSize="16px"/>
+                    <Label Content="Level" HorizontalAlignment="Left" Margin="59,90,0,0" VerticalAlignment="Top" FontSize="16px"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="104,90,0,0" VerticalAlignment="Top" Width="110" RenderTransformOrigin="0.75,0.595">
+                        <ComboBoxItem Content="1"></ComboBoxItem>
+                        <ComboBoxItem Content="2"></ComboBoxItem>
+                        <ComboBoxItem Content="3"></ComboBoxItem>
+                    </ComboBox>
+
+                    <CheckBox FontSize="16px" Name="moodCheckbox" Content="Mood" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,191,0,0" RenderTransformOrigin="0.552,2.721"/>
+
+                    <Label FontSize="16px" Content="Level " HorizontalAlignment="Left" Margin="59,206,0,0" VerticalAlignment="Top" Width="46"/>
+                    <ComboBox Name="moodLevelComboBox" HorizontalAlignment="Left" Margin="104,210,0,0" VerticalAlignment="Top" Width="110">
+                        <ComboBoxItem Content="1"></ComboBoxItem>
+                        <ComboBoxItem Content="2"></ComboBoxItem>
+                        <ComboBoxItem Content="3"></ComboBoxItem>
+                    </ComboBox>
+                    <CheckBox FontSize="16px" Name="crowdCheckBox" Content="Crowd" HorizontalAlignment="Left" Margin="8,131,0,0" VerticalAlignment="Top"/>
+                    <Label FontSize="16px" Content="Level" HorizontalAlignment="Left" Margin="58,151,0,0" VerticalAlignment="Top"/>
+                    <ComboBox Name="locationLevelComboBox" HorizontalAlignment="Left" Margin="104,90,0,0" VerticalAlignment="Top" Width="110" RenderTransformOrigin="0.75,0.595">
+                        <ComboBoxItem Content="1"></ComboBoxItem>
+                        <ComboBoxItem Content="2"></ComboBoxItem>
+                        <ComboBoxItem Content="3"></ComboBoxItem>
+                    </ComboBox>
+
+                    <CheckBox FontSize="16px" Name="relationshipCheckBox" Content="RelationShip" HorizontalAlignment="Left" Margin="10,249,0,0" VerticalAlignment="Top" />
+                    <Label FontSize="16px" Content="Level" HorizontalAlignment="Left" Margin="60,269,0,0" VerticalAlignment="Top" Width="45"/>
+                    <ComboBox Name="relationshipComboBox" HorizontalAlignment="Left" Margin="104,269,0,0" VerticalAlignment="Top" Width="110">
+                        <ComboBoxItem Content="1"></ComboBoxItem>
+                        <ComboBoxItem Content="2"></ComboBoxItem>
+                        <ComboBoxItem Content="3"></ComboBoxItem>
+                    </ComboBox>
+
+
+                    <Label FontSize="17px" Content="Sensoren" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="204" FontWeight="Bold" />
+                    <ComboBox Name="crowdLevelComboBox" HorizontalAlignment="Left" Margin="104,155,0,0" VerticalAlignment="Top" Width="110">
+                        <ComboBoxItem Content="1"></ComboBoxItem>
+                        <ComboBoxItem Content="2"></ComboBoxItem>
+                        <ComboBoxItem Content="3"></ComboBoxItem>
+                    </ComboBox>
+                    <Button Content="CREATE" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Margin="59,324,0,0" Click="Button_Click"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Control" Margin="32,0,-32,-2" RenderTransformOrigin="0.505,-0.068" HorizontalAlignment="Left" Width="78">
+                <Grid Background="LightBlue">
+                    <Label Content="Android Id : " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,19,0,0"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="90,23,0,0" Name="id_textbox"/>
+                    <CheckBox Content="Location" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="41,75,0,0" FontSize="16px"/>
+                    <CheckBox Content="Crowd" HorizontalAlignment="Left" Margin="41,108,0,0" VerticalAlignment="Top" FontSize="16px"/>
+                    <CheckBox Content="Mood" HorizontalAlignment="Left" Margin="41,142,0,0" VerticalAlignment="Top" FontSize="16px"/>
+                    <CheckBox Content="Relationship" HorizontalAlignment="Left" Margin="41,178,0,0" VerticalAlignment="Top" FontSize="16px"/>
+                    <Button Content="Send Request" HorizontalAlignment="Left" VerticalAlignment="Top" Width="129" Margin="41,298,0,0" Name="request_button" Height="33" Click="request_button_Click"/>
+                </Grid>
+            </TabItem>
+           
+        </TabControl>
+
+        <GroupBox Header="Filters" HorizontalAlignment="Left" Height="133" VerticalAlignment="Top" Width="527" Margin="257,10,0,0">
+            <Grid Name="filter">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid Grid.Column="0" Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Label Name="android_label" Content="Android : " Grid.Column="0" Grid.Row="0"/>
+                    <TextBox Name="android_id" Grid.ColumnSpan="2" Margin="70,0,0,0"/>
+                </Grid>
+                <Grid Grid.Column="0" Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Label Name="locatie_label" Content="Location : " Grid.Column="0" Grid.Row="0"/>
+                    <TextBox Name="long_id" Text="longitude" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" Margin="81,0,0,0" Foreground="LightGray"/>
+                    <TextBox Name="lang_id" Text="langitude" Grid.Row="0" Grid.ColumnSpan="2" Margin="71,0,10,0" Foreground="LightGray"/>
+                </Grid>
+                <Grid Grid.Column="0" Grid.Row="3" RenderTransformOrigin="0.282,0.362">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Label Name="datum_label" Content="Date : " Grid.Column="0" Grid.Row="0"/>
+                    <DatePicker Name="datepicker" Grid.Row="0" Grid.ColumnSpan="2" Margin="72,0,0,0"/>
+                </Grid>
+                <Grid Grid.Column="1" Grid.Row="0" RenderTransformOrigin="0.282,0.362">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Label Name="crowd_label" Content="Crowd : " Grid.Column="0" Grid.Row="0"/>
+                    <TextBox Name="crowd_textbox" Grid.Row="0" Grid.ColumnSpan="2" Margin="95,0,0,0"/>
+                </Grid>
+                <Grid Grid.Column="1" Grid.Row="1" RenderTransformOrigin="0.282,0.362">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Label Name="mood_label" Content="Mood : " Grid.Column="0" Grid.Row="0"/>
+                    <TextBox Name="mood_textbox" Grid.Row="0" Grid.ColumnSpan="2" Margin="95,0,0,0"/>
+                </Grid>
+                <Grid Grid.Column="1" Grid.Row="3" RenderTransformOrigin="0.282,0.362">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Label Name="relationship_label" Content="Relationship : " Grid.Column="0" Grid.Row="0"/>
+                    <TextBox Name="relationship_textbox" Grid.Row="0" Grid.ColumnSpan="2" Margin="95,0,0,0"/>
+                </Grid>
+            </Grid>
+
+        </GroupBox>
+        <ListView Name="robotListview" HorizontalAlignment="Left" Height="254" VerticalAlignment="Top" Width="527" Margin="257,148,0,0"/>
+
+    </Grid>
+</Window>
